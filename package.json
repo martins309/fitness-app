@@ -1,0 +1,33 @@
+{
+  "name": "fitness_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:create": "createdb fitness_app",
+    "db:destroy": "dropdb fitness_app",
+    "db:init": "psql -f schema.sql fitness_app",
+    "db:seed": "psql -f seed.sql fitness_app",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martins309/fitness-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martins309/fitness-app/issues"
+  },
+  "homepage": "https://github.com/martins309/fitness-app#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "express-es6-template-engine": "^2.2.3",
+    "express-session": "^1.17.1",
+    "pg-promise": "^10.9.2"
+  }
+}
