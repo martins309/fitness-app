@@ -1,20 +1,82 @@
-'use strict';
-
-const session = require('express-session');
-
 const express = require('express'),
-    router = express.Router();
-    
+    router = express.Router(),
+    bycrypt = require('bcryptjs'),
+    UserModel = require('../models/usersModel');
+
+// Gets
 
 router.get('/', (req, res) => {
     res.render('template', {
         locals: {
-            title: "Git Ript",
+            title: "Login Page",
+            is_logged_in: req.session.is_logged_in
         },
         partials: {
-            body: "partials/home",
+            body: "partials/login"
+        }
+    });
+});
+
+router.get('/logout', (req, res) => {
+    req.sessions.destroy();
+    res.redirect('/');
+})
+
+
+
+router.get('/signup', async (req, res) => {
+    res.render('template', {
+        locals: {
+            title: "Sign up Page",
+            is_logged_in: req.session.is_logged_in
+        },
+        partials: {
+            body: "partials/signup"
         }
     })
+});
+
+// Posts
+router.post('/login', async (req, res) => {
+    const { username, password  } = req.body;
+    const user = new UserModel(null, username, password, null, null, null, null, null, null, null, null);
+    const response = await user.login();
+
+    if(!!response.isValid) {
+        //do stuff if a user is loggen in
+        req.session.is_logged_in = response.isValid;
+        req.session.user_id = response.user_id;
+        req.session.username = response.username;
+        res.redirect('/');
+    }else {
+        res.sendStatus(403);
+    }
+});
+
+router.post('/signup', async (req, res) => {
+    const { username, password, first_name, last_name, weight, height_ft, height_in, age, phone_number, picture } = req.body;
+    console.log('phone_number and password', phone_number, password);
+    const salt = bycrypt.genSaltSync(10);
+    const hash = bycrypt.hashSync(password, salt);
+    const response = await UserModel.addUser (
+        username,
+        hash,
+        first_name,
+        last_name,
+        weight,
+        height_ft,
+        height_in, 
+        age,
+        phone_number,
+        picture
+    );
+    console.log("REGISTRATION RESPONSE", response);
+    if(response.id) {
+        res.redirect('/index/login');
+    }else {
+        res.send("Error: please try again").status(500);
+    }
+    
 });
 
 

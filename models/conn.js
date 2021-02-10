@@ -1,3 +1,4 @@
+'use strict';
 const host = 'ziggy.db.elephantsql.com',
     database = 'envbzadl',
     user = 'envbzadl',

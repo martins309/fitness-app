@@ -9,5 +9,16 @@ CREATE TABLE users (
     height_in integer,
     age integer,
     phone_num text,
-    picture text,
+    picture text
 );
+
+CREATE TABLE types (
+    id serial PRIMARY KEY,
+    name varchar (200)
+);
+
+CREATE TABLE part_of_body (
+    id serial PRIMARY KEY,
+    name varchar (200)
+);
+
