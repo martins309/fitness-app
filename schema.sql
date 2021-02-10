@@ -17,8 +17,34 @@ CREATE TABLE types (
     name varchar (200)
 );
 
-CREATE TABLE part_of_body (
+CREATE TABLE parts_of_body (
     id serial PRIMARY KEY,
     name varchar (200)
 );
 
+CREATE TABLE workouts (
+    id serial PRIMARY KEY,
+    name varchar (200),
+    picture text,
+    link text,
+    type_id integer REFERENCES types (id)
+);
+
+CREATE TABLE parts_workouts (
+    id serial PRIMARY KEY,
+    part_id integer REFERENCES parts_of_body (id),
+    workout_id integer REFERENCES workouts (id)
+);
+
+CREATE TABLE logged_workouts (
+    id serial PRIMARY KEY,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    user_id integer REFERENCES users (id),
+    workout_id integer REFERENCES workouts (id)
+);
+
+CREATE TABLE favorite_workouts (
+    id serial PRIMARY KEY,
+    user_id integer REFERENCES users (id),
+    workout_id integer REFERENCES workouts (id)
+)

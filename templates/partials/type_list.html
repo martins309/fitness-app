@@ -1,0 +1,5 @@
+<h1>This is the workout list page</h1>
+
+${typeList.map(type => 
+    `<a href="/workouts/${type.id}"><h1>${type.name}</h1></a>`
+    ).join('')}

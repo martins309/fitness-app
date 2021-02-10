@@ -5,7 +5,7 @@ const express = require('express'),
 
 // Gets
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
     res.render('template', {
         locals: {
             title: "Login Page",
@@ -17,14 +17,14 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/logout', (req, res) => {
+router.get('/logout', (req, res, next) => {
     req.sessions.destroy();
     res.redirect('/');
 })
 
 
 
-router.get('/signup', async (req, res) => {
+router.get('/signup', async (req, res, next) => {
     res.render('template', {
         locals: {
             title: "Sign up Page",
@@ -47,7 +47,7 @@ router.post('/login', async (req, res) => {
         req.session.is_logged_in = response.isValid;
         req.session.user_id = response.user_id;
         req.session.username = response.username;
-        res.redirect('/');
+        res.redirect('/workouts');
     }else {
         res.sendStatus(403);
     }

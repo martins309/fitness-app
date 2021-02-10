@@ -32,8 +32,14 @@ server.listen(port, hostname, ()=> {
 });
 
 const rootController = require('./routes/index');
-// const usersController = require('./routes/users');
+const workoutsController = require('./routes/workouts');
 
+const secured = (req, res, next) => {
+    if (req.session.is_logged_in) {
+      return next();
+    }
+    res.redirect("/");
+  };
 
 app.use('/', rootController);
-// app.use('/users', usersController);
+app.use('/workouts', secured, workoutsController);
