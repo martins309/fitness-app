@@ -48,9 +48,20 @@ class User {
             return error.message;
         }
     }
-    static async editUser(username, password, first_name, last_name, weight, height_ft, height_in, age, phone_num, picture) {
+    
+    static async getUserInfo(user_id) {
+        const query = `SELECT * FROM users WHERE id = '${user_id}';`; 
         try {
-            const query = `INSERT INTO users (username, password, first_name, last_name, weight, height_ft, height_in, age, phone_num, picture) VALUES ('${username}', '${password}', '${first_name}', '${last_name}', '${weight}', '${height_ft}', '${height_in}', '${age}', '${phone_num}', '${picture}') RETURNING id;`;
+            const response = await db.one(query);
+            return response; 
+        } catch (err) {
+            return err.message;
+        }
+    }
+
+    static async editUser(username, first_name, last_name, weight, height_ft, height_in, age, phone_num, user_id) {
+        try {
+            const query = `UPDATE users SET username = '${username}', first_name = '${first_name}', last_name = '${last_name}', weight = '${weight}', height_ft = '${height_ft}', height_in = '${height_in}' , age = '${age}', phone_num = '${phone_num}'  WHERE id = '${user_id}';`;
             const response = await db.one(query);
             return response;
         }catch (error){
