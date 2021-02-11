@@ -20,6 +20,18 @@ router.get('/', async (req, res, next) => {
     });
 })
 
+router.get('/parts', (req, res, next) => {
+    res.render('template', {
+        locals: {
+            title: "Choose Body Part",
+            is_logged_in: req.session.is_logged_in,
+        }, 
+        partials: {
+            body: "partials/workouts_by_part",
+        }
+    });
+});
+
 router.get('/:type_id', async (req, res, next) => {
     const { type_id } = req.params;
     const workoutList = await WorkoutModel.getAllWorkoutsByType(type_id);
