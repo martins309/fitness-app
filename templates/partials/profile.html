@@ -1,42 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="stylesheet" href="/styles/profile.css"/>
-    <title>Fitness App</title>
-</head>
-<body>
-  <div class="card" style="width: 18rem;">
-    <h1>Profile</h1>
-    <img src="..." class="card-img-top" alt="...">
-    <div class="input-group mb-3">
-      <input type="file" class="form-control" id="inputGroupFile02">
-      <label class="input-group-text" for="inputGroupFile02">Upload</label>
-    </div>
-    <div class="card-body">
-      <h5 class="card-title"></h5>
-      <p class="card-text"></p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Username</li>
-      <li class="list-group-item">Password</li>
-      <li class="list-group-item">First Name</li>
-      <li class="list-group-item">Last Name</li>
-      <li class="list-group-item">Weight</li>
-      <li class="list-group-item">Height</li>
-      <li class="list-group-item">Age</li>
-      <li class="list-group-item">Phone Number</li>
-      <li class="list-group-item"></li>
-    </ul>
-    <div class="card-body">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Edit Info</a>
-    </div>
+<div class="card f-dark-gray center" style="width: 18rem;">
+  <h1>${userInfo.first_name}'s Profile</h1>
+ 
+  <img src="${userInfo.picture}" class="card-img-top" alt="user Profile Picture">
+  <div class="input-group mb-3">
+  <!-- ADD FUnctionality to uploading an image-->
+  <form action="/profile/add_photo" method="POST">
+    <input type="file" class="form-control" id="inputGroupFile02">
+    <label class="input-group-text" for="inputGroupFile02">Upload</label>
+  </form>
   </div>
-</body>
-</html>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Username: ${userInfo.username}</li>
+    <li class="list-group-item">First Name: ${userInfo.first_name}</li>
+    <li class="list-group-item">Last Name: ${userInfo.last_name}</li>
+    <li class="list-group-item">Weight: ${userInfo.weight}lbs</li>
+    <li class="list-group-item">Height: ${userInfo.height_ft}ft ${userInfo.height_in}in</li>
+    <li class="list-group-item">Age: ${userInfo.age}</li>
+    <li class="list-group-item">Phone Number: ${userInfo.phone_num}</li>
+  </ul>
+</div>
+
+<a href="/profile/profile_edit" ><button type="button" class="btn btn-secondary">Edit Profile</button></a>
+
+
 
 
