@@ -47,4 +47,4 @@ CREATE TABLE favorite_workouts (
     id serial PRIMARY KEY,
     user_id integer REFERENCES users (id),
     workout_id integer REFERENCES workouts (id)
-)
+);
