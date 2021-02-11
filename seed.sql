@@ -16,18 +16,18 @@ VALUES ('shoulders'),
 ('legs');
 
 INSERT INTO workouts (name, picture, link, type_id) 
-VALUES ('Dumbbell Row', 'picture', 'https://www.youtube.com/watch?v=-koP10y1qZI', 1),
-('Farmer''s Carry', 'picture', 'https://www.youtube.com/watch?v=p5MNNosenJc', 1),
-('Bench Press', 'picture', 'https://www.youtube.com/watch?v=SCVCLChPQFY', 1),
-('Hammer Curls', 'picture', 'https://www.youtube.com/watch?v=CFBZ4jN1CMI', 1),
-('Triceps Kickback', 'picture', 'https://www.youtube.com/watch?v=6SS6K3lAwZ8', 1),
-('Squats', 'picture', 'https://www.youtube.com/watch?v=1oed-UmAxFs', 1), 
-('Lunges', 'picture', 'https://www.youtube.com/watch?v=ZkISva8aWDI', 1), 
-('Swing', 'picture', 'https://www.youtube.com/watch?v=cfYt7Q21w_0', 1), 
-('Crunch', 'picture', 'https://www.youtube.com/watch?v=Xyd_fa5zoEU&ab_channel=LIVESTRONG.COM', 1), 
-('Shrugs', 'picture', 'https://www.youtube.com/watch?v=g6qbq4Lf1FI', 1), 
-('Overhead Press', 'picture', 'https://www.youtube.com/watch?v=_RlRDWO2jfg&t=316s&ab_channel=JeffNippard', 1), 
-('Inclined Bench Press', 'picture', 'https://www.youtube.com/watch?v=SrqOu55lrYU&ab_channel=ScottHermanFitness', 1);
+VALUES ('Dumbbell Row', '/images/dumbbell_rows.jpg', 'https://www.youtube.com/watch?v=-koP10y1qZI', 1),
+('Farmer''s Carry', '/images/farmers_carry.jpg', 'https://www.youtube.com/watch?v=p5MNNosenJc', 1),
+('Bench Press', '/images/benchpress.jpg', 'https://www.youtube.com/watch?v=SCVCLChPQFY', 1),
+('Hammer Curls', '/images/hammer-curl.jpg', 'https://www.youtube.com/watch?v=CFBZ4jN1CMI', 1),
+('Triceps Kickback', '/images/triceps-kickback.jpg', 'https://www.youtube.com/watch?v=6SS6K3lAwZ8', 1),
+('Squats', '/images/squats.jpg', 'https://www.youtube.com/watch?v=1oed-UmAxFs', 1), 
+('Lunges', '/images/lunges.jpg', 'https://www.youtube.com/watch?v=ZkISva8aWDI', 1), 
+('Swing', '/images/swing.jpg', 'https://www.youtube.com/watch?v=cfYt7Q21w_0', 1), 
+('Crunch', '/images/crunch.jpg', 'https://www.youtube.com/watch?v=Xyd_fa5zoEU&ab_channel=LIVESTRONG.COM', 1), 
+('Shrugs', '/images/shrugs.jpg', 'https://www.youtube.com/watch?v=g6qbq4Lf1FI', 1), 
+('Overhead Press', '/images/overhead_press.jpg', 'https://www.youtube.com/watch?v=_RlRDWO2jfg&t=316s&ab_channel=JeffNippard', 1), 
+('Inclined Bench Press', '/images/incline-bench-press.jpg', 'https://www.youtube.com/watch?v=SrqOu55lrYU&ab_channel=ScottHermanFitness', 1);
 
 INSERT INTO parts_workouts (part_id, workout_id)
 VALUES (3, 1),

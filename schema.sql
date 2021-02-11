@@ -39,6 +39,10 @@ CREATE TABLE parts_workouts (
 CREATE TABLE logged_workouts (
     id serial PRIMARY KEY,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    weight integer,
+    reps integer,
+    duration_min integer,
+    duration_sec integer,
     user_id integer REFERENCES users (id),
     workout_id integer REFERENCES workouts (id)
 );

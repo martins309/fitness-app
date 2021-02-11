@@ -54,8 +54,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/signup', async (req, res) => {
-    const { username, password, first_name, last_name, weight, height_ft, height_in, age, phone_number, picture } = req.body;
-    console.log('phone_number and password', phone_number, password);
+    const { username, password, first_name, last_name, weight, height_ft, height_in, age, phone_num, picture } = req.body;
     const salt = bycrypt.genSaltSync(10);
     const hash = bycrypt.hashSync(password, salt);
     const response = await UserModel.addUser (
@@ -67,12 +66,11 @@ router.post('/signup', async (req, res) => {
         height_ft,
         height_in, 
         age,
-        phone_number,
+        phone_num,
         picture
     );
-    console.log("REGISTRATION RESPONSE", response);
     if(response.id) {
-        res.redirect('/index/login');
+        res.redirect('/login');
     }else {
         res.send("Error: please try again").status(500);
     }

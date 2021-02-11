@@ -1,1 +1,28 @@
-<h1>This is the individual workout page!</h1>
+<h1>${workoutDetails.name}</h1>
+
+<div>
+    <img src="${workoutDetails.picture}" alt="Image of ${workoutDetails.name} in action">
+    <p><a href="${workoutDetails.link}" target="_blank">Click here to watch!</a></p>
+
+</div>
+
+
+<div>
+    <h2>Body Parts this exercise works:</h2>
+    ${partsList.map(parts => 
+        `<p>${parts.name}</p>`
+        ).join('')}
+</div>
+<form action="add_workout" method="POST">
+    <input type="hidden" name="type_id" value="${workoutDetails.type_id}">
+    <input type="hidden" name="id" value="${workoutDetails.id}">
+    <label for="weight">
+        Weight:
+        <input type="text" name="weight" id="weight" placeholder="10" required>lbs
+    </label>
+    <label for="reps">
+        Reps:
+        <input type="text" name="reps" id="reps" placeholder="3" required>
+    </label>
+    <button type="submit">Log it!</button>
+</form>
