@@ -9,7 +9,7 @@ class Workout {
     }
 
     static async getAllTypes() {
-        const query = `SELECT * FROM types ORDER BY name DESC;`;
+        const query = `SELECT * FROM types ORDER BY name;`;
         try {
             const response = await db.any(query);
             return response;
@@ -23,7 +23,7 @@ class Workout {
             SELECT * 
             FROM workouts 
             WHERE type_id = '${type_id}'
-            ORDER BY name DESC;`;
+            ORDER BY name;`;
         try {
             const response = await db.any(query);
             return response;
@@ -39,7 +39,7 @@ class Workout {
             INNER JOIN parts_workouts
             ON part_id = '${part_id}'
             WHERE workouts.type_id = '${type_id}' AND parts_workouts.part_id = '${part_id}'
-            ORDER BY name DESC;`;
+            ORDER BY name;`;
         try {
             const response = await db.any(query);
             return response;
@@ -50,11 +50,41 @@ class Workout {
 
     static async getWorkoutById(workout_id) {
         const query = `SELECT * FROM workouts
-            INNER JOIN parts_workouts
-            ON workouts.id = parts_workouts.workout_id
-            INNER JOIN parts_of_body
-            ON parts_workouts.part_id = parts_of_body.id;`;
+            WHERE workouts.id = '${workout_id}';`;
+        try {
+            const response = await db.one(query);
+            return response;
+        } catch (err) {
+            return message.err;
+        }
     }
+
+    static async getPartsByWorkoutId(workout_id) {
+        const query = `SELECT parts_of_body.name FROM parts_of_body
+            INNER JOIN parts_workouts
+            ON parts_workouts.part_id = parts_of_body.id
+            INNER JOIN workouts
+            ON workouts.id = parts_workouts.workout_id
+            WHERE workouts.id = '${workout_id}';`;
+        try {
+            const response = await db.any(query);
+            return response;
+        } catch (err) {
+            return err.message;
+        }
+    }
+
+    static async logWorkout(workout_id, weight, duration_min, duration_sec, reps, user_id) {
+        const query = `INSERT INTO logged_workouts (workout_id, weight, duration_min, duration_sec, reps, user_id) VALUES (${workout_id}, ${weight}, ${duration_min}, ${duration_sec}, ${reps}, ${user_id});`;
+        try {
+            const response = await db.result(query);
+            return response;
+        } catch (err) {
+            return err.message;
+        }
+    }
+
+
 }
 
 module.exports = Workout;
