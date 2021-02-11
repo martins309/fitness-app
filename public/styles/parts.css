@@ -1,0 +1,13 @@
+:root {
+  --orange: rgb(248, 135, 21);
+  --light-orange: rgb(250, 193, 135);
+  --dark-orange: rgb(136, 69, 2);
+  --light-gray: rgb(141, 138, 136);
+  --gray: rgb(48, 46, 44);
+  --dark-gray: rgb(27, 25, 23);
+  --white: rgb(255, 248, 241);
+}
+
+.border {
+  border: 2px solid var(--orange);
+}

@@ -1,0 +1,92 @@
+:root {
+  --orange: rgb(248, 135, 21);
+  --light-orange: rgb(250, 193, 135);
+  --dark-orange: rgb(136, 69, 2);
+  --light-gray: rgb(141, 138, 136);
+  --gray: rgb(48, 46, 44);
+  --dark-gray: rgb(27, 25, 23);
+  --white: rgb(255, 248, 241);
+}
+
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--dark-gray);
+  color: var(--white);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+  position: relative;
+  text-align: center;
+  top: 0;
+}
+
+.f-white {
+  color: var(--white);
+}
+
+.f-dark-orange {
+  color: var(--dark-orange);
+}
+
+.f-orange {
+  color: var(--orange);
+}
+
+.f-light-orange {
+  color: var(--light-orange);
+}
+
+.f-light-gray {
+  color: var(--light-gray);
+}
+
+.f-gray {
+  color: var(--gray);
+}
+
+.f-dark-gray {
+  color: var(--dark-gray);
+}
+
+.b-white {
+  background-color: var(--white);
+}
+
+.b-light-gray {
+  background-color: var(--light-gray);
+}
+
+.b-gray {
+  background-color: var(--gray);
+}
+
+.b-dark-gray {
+  background-color: var(--dark-gray);
+}
+
+.b-dark-orange {
+  background-color: var(--dark-orange);
+}
+
+.b-orange {
+  background-color: var(--orange);
+}
+
+.b-light-orange {
+  background-color: var(--light-orange);
+}
+
+.center {
+  margin: auto;
+}
