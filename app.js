@@ -27,12 +27,15 @@ app.use(express.static('public'));
 
 const server = http.createServer(app);
 
-server.listen(port, hostname, ()=> {
+server.listen(port, hostname, () => {
     console.log(`Server is running on http://${hostname}:${port}`)
 });
 
 const rootController = require('./routes/index');
 const workoutsController = require('./routes/workouts');
+const profileController = require('./routes/profile');
+
+
 
 const secured = (req, res, next) => {
     if (req.session.is_logged_in) {
@@ -43,3 +46,4 @@ const secured = (req, res, next) => {
 
 app.use('/', rootController);
 app.use('/workouts', secured, workoutsController);
+app.use('/profile', secured, profileController);
