@@ -32,6 +32,22 @@ class Workout {
         }
     }
 
+    static async getAllWorkoutsByPart(part_id) {
+        const query = `
+            SELECT workouts.id, workouts.name, workouts.picture, workouts.link, workouts.type_id 
+            FROM workouts 
+            INNER JOIN parts_workouts 
+            ON workouts.id = parts_workouts.workout_id
+            WHERE parts_workouts.part_id = '${part_id}'
+            ORDER BY workouts.name;`;
+        try {
+            const response = await db.any(query);
+            return response;
+        } catch {
+            return err.message;
+        }
+    }
+
     static async getAllWorkoutsByPartAndType(part_id, type_id) {
         const query = `
             SELECT * 
@@ -59,8 +75,30 @@ class Workout {
         }
     }
 
+    static async getPartInfo(part_id) {
+        const query = `SELECT * FROM parts_of_body
+        WHERE id = '${part_id}';`;
+        try {
+            const response = await db.one(query);
+            return response;
+        } catch (err) {
+            return err.message;
+        }
+    }
+
+    static async getTypeInfo(type_id) {
+        const query = `SELECT * FROM types
+        WHERE id = '${type_id}';`;
+        try {
+            const response = await db.one(query);
+            return response;
+        } catch (err) {
+            return err.message;
+        }
+    }
+
     static async getPartsByWorkoutId(workout_id) {
-        const query = `SELECT parts_of_body.name FROM parts_of_body
+        const query = `SELECT parts_of_body.id, parts_of_body.name FROM parts_of_body
             INNER JOIN parts_workouts
             ON parts_workouts.part_id = parts_of_body.id
             INNER JOIN workouts
