@@ -31,6 +31,18 @@ body {
   top: 0;
 }
 
+hr {
+  background-color: var(--background);
+  background-image: linear-gradient(
+    to right,
+    rgba(27, 25, 23, 0),
+    rgba(248, 135, 21),
+    rgba(27, 25, 23, 0)
+  );
+  margin: auto;
+  width: 75%;
+}
+
 .f-white {
   color: var(--white);
 }
@@ -89,4 +101,24 @@ body {
 
 .center {
   margin: auto;
+}
+
+.spaced {
+  margin: 10px;
+}
+
+.f-xl {
+  font-size: 1.8rem;
+}
+
+.f-large {
+  font-size: 1.5rem;
+}
+
+.f-small {
+  font-size: 0.7rem;
+}
+
+.profile-img {
+  background-color: var(--orange);
 }

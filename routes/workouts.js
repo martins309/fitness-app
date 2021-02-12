@@ -20,26 +20,28 @@ router.get('/', async (req, res, next) => {
     });
 })
 
-router.get('/parts', (req, res, next) => {
+router.get('/bodypart', (req, res, next) => {
     res.render('template', {
         locals: {
             title: "Choose Body Part",
             is_logged_in: req.session.is_logged_in,
         }, 
         partials: {
-            body: "partials/workouts_by_part",
+            body: "partials/part_graphic",
         }
     });
 });
 
 router.get('/:type_id', async (req, res, next) => {
     const { type_id } = req.params;
+    const typeInfo = await WorkoutModel.getTypeInfo(type_id);
     const workoutList = await WorkoutModel.getAllWorkoutsByType(type_id);
     res.render('template', {
         locals: {
-            title: "Workouts",
+            title: `Workouts for ${typeInfo.name}`,
             is_logged_in: req.session.is_logged_in,
             workoutList,
+            typeInfo
         },
         partials: {
             body: "partials/workouts_by_type",
@@ -60,6 +62,23 @@ router.get('/workout/:workout_id', async (req, res, next) => {
         },
         partials: {
             body: "partials/workout",
+        }
+    });
+});
+
+router.get('/parts/:part_id', async (req, res, next) => {
+    const { part_id } = req.params;
+    const partInfo = await WorkoutModel.getPartInfo(part_id);
+    const workoutList = await WorkoutModel.getAllWorkoutsByPart(part_id);
+    res.render('template', {
+        locals: {
+            title: `${partInfo.name} Workouts`,
+            is_logged_in: req.session.is_logged_in,
+            workoutList,
+            partInfo
+        },
+        partials: {
+            body: "partials/workouts_by_parts",
         }
     });
 });
