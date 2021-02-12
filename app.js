@@ -39,10 +39,10 @@ const profileController = require('./routes/profile');
 
 const secured = (req, res, next) => {
     if (req.session.is_logged_in) {
-      return next();
+    return next();
     }
     res.redirect("/");
-  };
+    };
 
 app.use('/', rootController);
 app.use('/workouts', secured, workoutsController);
