@@ -1,2 +1,33 @@
+.card {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    box-shadow: 10px 5px 5px grey;
+    border-radius: 10px;
+    background-color: black;
+    color: rgba(128, 128, 128, 0.932);
+}
 
+.input-group mb-3 {
 
+}
+
+.form-control{
+
+}
+
+.input-group-text{
+    
+}
+
+.list-group list-group-flush{
+    
+}
+
+.list-group-item:nth-child(odd){
+    background-color: rgba(148, 143, 143, 0.096);
+
+.list-group-item:nth-child(even){
+    background-color: gray;
+}
+
+.btn btn-secondary{
+}
