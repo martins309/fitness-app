@@ -1,3 +1,6 @@
+
+
+
 <div class="card f-dark-gray center" style="width: 18rem;">
   <h1>${userInfo.first_name}'s Profile</h1>
  
@@ -9,6 +12,12 @@
     <label class="input-group-text f-dark-orange  b-light-gray" for="inputGroupFile02">Upload</label>
   </form>
   </div>
+  <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+    <button type="button" class="btn btn-danger">profile</button>
+    <button type="button" class="btn btn-warning">profile summary</button>
+    <button type="button" class="btn btn-success">edit profile</button>
+  </div>
+
   <ul class="list-group list-group-flush f-dark-orange  b-light-gray">
     <li class="list-group-item">Username: ${userInfo.username}</li>
     <li class="list-group-item">First Name: ${userInfo.first_name}</li>
@@ -23,5 +32,61 @@
 <a href="/profile/profile_edit" ><button type="button" class="btn btn-secondary">Edit Profile</button></a>
 
 
+
+
+
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Workout Summary</h5>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+
+    ${loggedWorkouts.map(workout => 
+      `
+      <a class="nav-link" href="/workouts/workout/${workout.id}">
+      <div class="card text-white bg-dark mb-3 center" style="max-width: 540px;">
+          <div class="row g-0">
+              <div class="card-body">
+                  <h3 class="card-title">${workout.name}</h3>
+                  <ul>
+                    <li>${workout.date}</li>
+                    ${!!workout.weight ? 
+                      `<li>Weight: ${workout.weight}lbs</li>`
+                    : `<span></span>`}
+                    ${!!workout.reps ? 
+                      `<li>Reps: ${workout.reps}</li>`
+                      : `<span></span>`}
+                    ${!!workout.duration_min ?
+                      `<li>Duration: ${workout.duration_min}min ${workout.duration_sec}sec</li>`
+                      : `<span></span>`}
+                    ${!!workout.distance ? 
+                      `<li>Distance: ${workout.distance}</li>`
+                      : `<span></span>`}
+                    ${!!workout.calories_burned ? 
+                      `<li>Calories Burned: ${workout.calories_burned}</li>`
+                      : `<span></span>`}
+                    
+                  </ul>
+              </div>
+          </div>
+      </div>
+      </a>
+      `
+  ).join('')}
+
+  </div>
+</div>
 
 

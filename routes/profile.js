@@ -9,11 +9,13 @@ const express = require('express'),
 router.get('/', async (req, res, next) => {
     const user_id = req.session.user_id;
     const userInfo = await UserModel.getUserInfo(user_id);
+    const loggedWorkouts = await UserModel.getLoggedWorkouts(user_id);
     res.render('template', {
         locals: {
             title: "Profile_View ",
             is_logged_in: req.session.is_logged_in,
             userInfo,
+            loggedWorkouts,
         },
         partials: {
             body: "partials/profile"
