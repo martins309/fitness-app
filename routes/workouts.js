@@ -20,6 +20,23 @@ router.get('/', async (req, res, next) => {
     });
 })
 
+router.get('/todays', async (req, res, next) => {
+    const user_id = req.session.user_id;
+    const userInfo = await UserModel.getUserInfo(user_id);
+    res.render('template', {
+        locals: {
+            title: "Today's Workouts",
+            is_logged_in: req.session.is_logged_in,
+            userInfo,
+        },
+        partials: {
+            body: "partials/todays_workout"
+        }
+    });
+});
+
+
+
 router.get('/bodypart', (req, res, next) => {
     res.render('template', {
         locals: {
