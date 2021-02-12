@@ -5,7 +5,7 @@ const express = require('express'),
     UserModel = require('../models/usersModel');
 
 
-//get data from the profile page
+//get data for the profile page
 router.get('/', async (req, res, next) => {
     const user_id = req.session.user_id;
     const userInfo = await UserModel.getUserInfo(user_id);

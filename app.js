@@ -2,7 +2,7 @@ const http = require('http'),
     hostname = '127.0.0.1',
     port = 3001;
 
-    
+const Chart = require('chart.js');
 
 const express = require('express'),
     session = require('express-session'),
@@ -34,6 +34,7 @@ server.listen(port, hostname, () => {
 const rootController = require('./routes/index');
 const workoutsController = require('./routes/workouts');
 const profileController = require('./routes/profile');
+const chartsController = require('./routes/charts');
 
 
 
@@ -47,3 +48,4 @@ const secured = (req, res, next) => {
 app.use('/', rootController);
 app.use('/workouts', secured, workoutsController);
 app.use('/profile', secured, profileController);
+app.use('/charts', secured, chartsController);
