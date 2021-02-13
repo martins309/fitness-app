@@ -1,7 +1,5 @@
 <h1>${typeData.name} chart</h1>
 
-
-
 <div class="container">
     <canvas id="myChart"></canvas>
 </div>
@@ -19,8 +17,8 @@
         data:{
         labels:${date_labels},
         datasets:[{
-            label:'Weight',
-            data:[${weights}],
+            label:${label},
+            data:[${sums}],
             //backgroundColor:'green',
             backgroundColor:[
             'rgba(248, 135, 21, 0.6)',
@@ -40,7 +38,7 @@
         options:{
         title:{
             display:true,
-            text:'Total Weight lifted by day in lbs',
+            text:'Total ${JSON.parse(label)} by day',
             fontSize:20
         },
         legend:{
