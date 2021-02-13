@@ -1,6 +1,7 @@
 'use strict';
 
 const { getTotalWeightByDate } = require('../models/chartsModel');
+const { getTypeInfo } = require('../models/workoutModel');
 
 const express = require('express'),
     router = express.Router(),
@@ -33,10 +34,11 @@ router.get('/:type_id', async (req, res, next) => {
         d.to
         const weight = await chartModel.getTotalWeightByDate(d.toString().substring(0, 16));
         weights.unshift(Number(weight.total_weight));
-        let d_curr = d.toDateString();
+        let d_curr = d.toDateString().substring(0, 11);
         date_labels.unshift(d_curr);
         d.setDate(d.getDate() - 1);
     }
+    const typeData = await workoutModel.getTypeInfo(type_id);
     console.log(weights);
     console.log(date_labels);
     res.render('template', {
@@ -45,6 +47,7 @@ router.get('/:type_id', async (req, res, next) => {
             is_logged_in: req.session.is_logged_in,
             weights,
             date_labels: JSON.stringify(date_labels),
+            typeData
         }, 
         partials: {
             body:"partials/weightlifting_chart",
