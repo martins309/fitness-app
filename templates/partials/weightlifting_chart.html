@@ -1,4 +1,6 @@
-<h1>I AM IN CHARTS</h1>
+<h1>Weightlifting chart</h1>
+
+
 
 <div class="container">
     <canvas id="myChart"></canvas>
@@ -6,30 +8,22 @@
 
 <script>
     let myChart = document.getElementById('myChart').getContext('2d');
-    console.log(${test_num});
-
-    // Global Options
-    Chart.defaults.global.defaultFontFamily = 'Lato';
+    console.log("hello");
+    console.log(${date_labels});
+    Chart.defaults.global.defaultFontFamily = 'sans-serif';
     Chart.defaults.global.defaultFontSize = 18;
     Chart.defaults.global.defaultFontColor = '#777';
 
     let massPopChart = new Chart(myChart, {
-        type:'doughnut', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+        type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
         data:{
-        labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+        labels:${date_labels},
         datasets:[{
-            label:'Population',
-            data:[
-            ${test_num},
-            null,
-            '153060',
-            106519,
-            105162,
-            95072
-            ],
+            label:'Weight',
+            data:[${weights}],
             //backgroundColor:'green',
             backgroundColor:[
-            'rgba(255, 99, 132, 0.6)',
+            'rgba(248, 135, 21, 0.6)',
             'rgba(54, 162, 235, 0.6)',
             'rgba(255, 206, 86, 0.6)',
             'rgba(75, 192, 192, 0.6)',
@@ -46,14 +40,14 @@
         options:{
         title:{
             display:true,
-            text:'Largest Cities In Massachusetts',
-            fontSize:25
+            text:'Total Weight lifted by day in lbs',
+            fontSize:20
         },
         legend:{
             display:true,
             position:'right',
             labels:{
-            fontColor:'#000'
+            fontColor:'rgba(250, 193, 135)'
             }
         },
         layout:{

@@ -1,14 +1,6 @@
-<h1>I AM IN CHARTS</h1>
-
-<div class="container">
-    <canvas id="myChart"></canvas>
-</div>
-
-<script>
-    let myChart = document.getElementById('myChart').getContext('2d');
-    console.log(${test_num});
-
-    // Global Options
+let myChart = document.getElementById('myChart').getContext('2d');
+    console.log("hello");
+    console.log(${date_labels2});
     Chart.defaults.global.defaultFontFamily = 'Lato';
     Chart.defaults.global.defaultFontSize = 18;
     Chart.defaults.global.defaultFontColor = '#777';
@@ -20,7 +12,7 @@
         datasets:[{
             label:'Population',
             data:[
-            ${test_num},
+            null,
             null,
             '153060',
             106519,
@@ -69,4 +61,3 @@
         }
         }
     });
-</script>
