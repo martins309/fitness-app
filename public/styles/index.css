@@ -15,7 +15,6 @@ html {
 }
 
 .modal-title {
-  
 }
 
 *,
@@ -125,4 +124,8 @@ hr {
 
 .profile-img {
   background-color: var(--orange);
+}
+
+.p-20 {
+  padding: 20px;
 }

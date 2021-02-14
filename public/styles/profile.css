@@ -1,33 +1,24 @@
-.card {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    box-shadow: 10px 5px 5px grey;
-    border-radius: 10px;
-    background-color: black;
-    color: rgba(128, 128, 128, 0.932);
+.profile-pic-cropper {
+  width: 350px;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 10;
+  top: 100px;
+  left: 50px;
 }
 
-.input-group mb-3 {
-
+.profile-pic {
+  display: inline;
+  margin: 0 auto;
+  margin-left: -25%;
+  height: 100%;
+  width: auto;
 }
 
-.form-control{
-
-}
-
-.input-group-text{
-    
-}
-
-.list-group list-group-flush{
-    
-}
-
-.list-group-item:nth-child(odd){
-    background-color: rgba(148, 143, 143, 0.096);
-
-.list-group-item:nth-child(even){
-    background-color: gray;
-}
-
-.btn btn-secondary{
+.profile-banner {
+  margin-top: 320px;
+  padding: 50px;
 }
