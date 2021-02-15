@@ -41,15 +41,6 @@ router.get('/', async (req, res, next) => {
 });
 
 
-
-router.get('/logout', (req, res, next) => {
-    req.sessions.destroy();
-    res.redirect('/');
-})
-
-
-
-
 //edit information on profile 
 router.get('/profile_edit', async (req, res, next) => {
     const user_id = req.session.user_id;
