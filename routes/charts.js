@@ -18,7 +18,8 @@ router.get('/', (req, res, next) => {
             test_num: 3000,
         },
         partials: {
-            body: "partials/progress_charts"
+            body: "partials/progress_charts",
+            header: ""
         }
     });
 });
@@ -63,6 +64,7 @@ router.get('/:type_id', async (req, res, next) => {
         }, 
         partials: {
             body:"partials/weightlifting_chart",
+            header: ""
         }
     })
 })

@@ -14,8 +14,6 @@ html {
   max-width: 100%;
 }
 
-
-
 *,
 *::before,
 *::after {
@@ -114,6 +112,10 @@ hr {
   margin: 10px;
 }
 
+.top_margin {
+  margin-top: 100px;
+}
+
 .f-xl {
   font-size: 1.8rem;
 }
@@ -131,17 +133,16 @@ hr {
   border-radius: 20%;
 }
 
-
-a.active, a:hover{
-  transition: .5s;
+a.active,
+a:hover {
+  transition: 0.5s;
 }
 
-.burger{
+.burger {
   display: none;
-
 }
 
-.nav{
+.nav {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -151,50 +152,47 @@ a.active, a:hover{
   align-items: center;
   min-height: 8vh;
   padding: 15px 55px;
+}
+
+.workout-container {
+  max-width: 600px;
+}
+
+.burger div {
+  width: 35px;
+  height: 3px;
+  background-color: rgb(248, 135, 21);
+  margin: 5px 5px;
+}
+
+@media screen and (max-width: 812px) {
+  .nav-item {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .nav-item {
+    width: 50%;
+    opacity: 0%;
+    transform: translate(100%);
   }
 
+  .nav {
+    display: none;
+  }
 
-  
-.burger div{
-
-    width: 35px;
-    height: 3px;
-    background-color:rgb(248, 135, 21);
-    margin: 5px 5px;  
-    
-}
-
-
-@media screen and (max-width:812px) {
-  .nav-item{
-    width: 45%;
-    }
-  
-}
-
-@media screen and (max-width:400px) {
-      
-    .nav-item{
-      width: 50%;
-      opacity: 0%; 
-      transform: translate(100%);   
-
-      }
-      
-     .burger{
-       display: block;
-       margin-bottom: 140px;
-       margin-left: 20px;
-       cursor: pointer;
-
-     } 
-     /* .fxl{
+  .burger {
+    display: block;
+    /* margin-bottom: 140px; */
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  /* .fxl{
        margin-right: 10px;
      } */
 }
 
-
-.nav-active{
+.nav-active {
   transform: translate(0%);
 }
-

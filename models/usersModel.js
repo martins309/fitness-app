@@ -19,9 +19,9 @@ class User {
     
     
     
-    static async addUser(username, password, first_name, last_name, weight, height_ft, height_in, age, phone_num, picture) {
+    static async addUser(username, password, first_name, last_name, weight, height_ft, height_in, age, phone_num) {
         try {
-            const query = `INSERT INTO users (username, password, first_name, last_name, weight, height_ft, height_in, age, phone_num, picture) VALUES ('${username}', '${password}', '${first_name}', '${last_name}', '${weight}', '${height_ft}', '${height_in}', '${age}', '${phone_num}', '${picture}') RETURNING id;`;
+            const query = `INSERT INTO users (username, password, first_name, last_name, weight, height_ft, height_in, age, phone_num) VALUES ('${username}', '${password}', '${first_name}', '${last_name}', '${weight}', '${height_ft}', '${height_in}', '${age}', '${phone_num}') RETURNING id;`;
             const response = await db.one(query);
             return response;
         }catch (error){

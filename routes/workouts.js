@@ -16,6 +16,7 @@ router.get('/', async (req, res, next) => {
         },
         partials: {
             body: "partials/type_list",
+            header: "partials/header"
         }
     });
 })
@@ -30,7 +31,8 @@ router.get('/todays', async (req, res, next) => {
             userInfo,
         },
         partials: {
-            body: "partials/todays_workout"
+            body: "partials/todays_workout",
+            header: "partials/header"
         }
     });
 });
@@ -45,6 +47,7 @@ router.get('/bodypart', (req, res, next) => {
         }, 
         partials: {
             body: "partials/part_graphic",
+            header: "partials/header"
         }
     });
 });
@@ -57,6 +60,7 @@ router.get('/addWorkout', async (req, res, next) => {
         }, 
         partials: {
             body: "partials/add_workout",
+            header: "partials/header"
         }
     });
 })
@@ -74,6 +78,7 @@ router.get('/workout/:workout_id', async (req, res, next) => {
         },
         partials: {
             body: "partials/workout",
+            header: "partials/header"
         }
     });
 });
@@ -89,6 +94,7 @@ router.get('/userworkout/:workout_id', async (req, res, next) => {
         },
         partials: {
             body: "partials/userworkout",
+            header: "partials/header"
         }
     });
 });
@@ -106,6 +112,7 @@ router.get('/parts/:part_id', async (req, res, next) => {
         },
         partials: {
             body: "partials/workouts_by_parts",
+            header: "partials/header"
         }
     });
 });
@@ -128,6 +135,7 @@ router.get('/:type_id', async (req, res, next) => {
         },
         partials: {
             body: "partials/workouts_by_type",
+            header: "partials/header"
         }
     });
 })

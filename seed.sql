@@ -125,7 +125,7 @@ VALUES
 (2, 32),
 (4, 32),
 (2, 33),
-(5, 33)
+(5, 33);
 
 
 UPDATE workouts SET link = 'https://www.youtube.com/watch?v=aZOZ3QNPZUs' WHERE name = 'Running';

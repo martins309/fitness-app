@@ -33,7 +33,8 @@ router.get('/', async (req, res, next) => {
             date_labels: JSON.stringify(date_labels),
         },
         partials: {
-            body: "partials/profile"
+            body: "partials/profile",
+            header: "partials/header"
         }
     });
 });
@@ -59,7 +60,8 @@ router.get('/profile_edit', async (req, res, next) => {
             userInfo
         },
         partials: {
-            body: "partials/profile_edit"
+            body: "partials/profile_edit",
+            header: "partials/header"
         }
     });
 });
@@ -77,7 +79,8 @@ router.get('/loggedworkouts', async (req, res, next) => {
             loggedWorkouts,
         },
         partials: {
-            body: "partials/logged_workouts"
+            body: "partials/logged_workouts",
+            header: "partials/header"
         }
     });
 })
