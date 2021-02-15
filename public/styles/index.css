@@ -15,6 +15,7 @@ html {
 }
 
 
+
 *,
 *::before,
 *::after {
@@ -104,6 +105,11 @@ hr {
   margin: auto;
 }
 
+.left {
+  padding-left: 100px;
+  text-align: left;
+}
+
 .spaced {
   margin: 10px;
 }
@@ -187,6 +193,8 @@ a.active, a:hover{
      } */
 }
 
+
 .nav-active{
   transform: translate(0%);
 }
+

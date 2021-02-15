@@ -71,10 +71,12 @@ class User {
     
     static async getLoggedWorkouts(user_id) {
         try {
-            const query = `SELECT to_char(logged_workouts.date, 'Mon DD, YYYY') as date, logged_workouts.id, logged_workouts.user_id, logged_workouts.workout_id, logged_workouts.weight, logged_workouts.reps, logged_workouts.duration_min, logged_workouts.duration_sec, logged_workouts.distance, logged_workouts.calories_burned, workouts.name  FROM logged_workouts
-                INNER JOIN workouts 
-                ON logged_workouts.workout_id = workouts.id
-                WHERE logged_workouts.user_id = '${user_id}';`;
+            const query = `SELECT to_char(l.date, 'Mon DD, YYYY') as date, l.id, l.user_id, l.workout_id, l.weight, l.reps, l.duration_min, l.duration_sec, l.distance, l.calories_burned, l.user_workout_id, w.name as name, uw.name as workout_name FROM logged_workouts l
+            LEFT JOIN workouts w 
+            ON l.workout_id = w.id
+            LEFT JOIN user_workouts uw
+            ON uw.id = l.user_workout_id 
+            WHERE l.user_id = '${user_id}' ORDER BY date DESC;`;
             const response = await db.any(query);
             return response;
         } catch (err) {

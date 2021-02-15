@@ -1,0 +1,58 @@
+<br>
+<h1 class="f-orange f-xl">${workoutDetails.name}</h1>
+<div class="container">
+    <div class="card mb-3 b-gray">
+        <div class="card-body">
+            <hr>
+            <hr>
+            <form class="spaced" action="log_user_workout" method="POST">
+                <input type="hidden" name="type_id" value="${workoutDetails.type_id}">
+                <input type="hidden" name="id" value="${workoutDetails.id}">
+                <label class="form-label" for="weight">
+                    Weight:
+                </label>
+                <div class="input-group mb-3 w-25 center">
+                    <input input class="form-control" type="text" name="weight" id="weight" placeholder="10" required aria-describedby="basic-addon1">
+                    <span class="input-group-text" id="basic-addon1">lbs</span>
+                </div>
+                <label class="form-label" for="reps">
+                    Reps:
+                    <input class="form-control" type="text" name="reps" id="reps" placeholder="3" required>
+                </label>
+                <br>
+                <!-- Button trigger modal -->
+                <button type="button" class="spaced btn f-light-orange btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Log it
+                  </button>
+                  <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content b-gray">
+                                <div class="modal-header">
+                                    <h5 class="modal-title f-light-orange" id="staticBackdropLabel">Are you sure you want to log this workout?</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <h1 class="f-orange f-xl">${workoutDetails.name}</h1>
+                                    <p>Weight: Reps: </p>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="f-light-orange btn btn-secondary" aria-label="Close" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="f-light-orange btn btn-secondary">Save Changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <!-- <button id="showModal" type="button">Show Modal</button> -->
+                    <div id="overlay"  class="overlay">
+                        <div id="modal" class="modal">
+                            <p></p>
+                            <!-- <button id="closeModal" class="close" type="button">x</button> -->
+                        </div>
+        
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
