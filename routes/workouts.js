@@ -100,6 +100,8 @@ router.get('/parts/:part_id', async (req, res, next) => {
     });
 });
 
+
+
 // Posts
 
 router.post('/workout/add_workout', async (req, res, next) => {
@@ -108,6 +110,8 @@ router.post('/workout/add_workout', async (req, res, next) => {
     const newLoggedWorkout = await WorkoutModel.logWorkout(id, weight, null, null, reps, user_id);
     res.redirect(`/workouts/${type_id}`);
 });
+
+
 
 module.exports = router;
 

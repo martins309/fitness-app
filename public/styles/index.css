@@ -15,7 +15,6 @@ html {
 }
 
 .modal-title {
-  
 }
 
 *,
@@ -107,6 +106,11 @@ hr {
   margin: auto;
 }
 
+.left {
+  padding-left: 100px;
+  text-align: left;
+}
+
 .spaced {
   margin: 10px;
 }
@@ -125,4 +129,8 @@ hr {
 
 .profile-img {
   background-color: var(--orange);
+}
+
+.p-20 {
+  padding: 20px;
 }
