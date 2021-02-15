@@ -32,6 +32,20 @@ class Workout {
         }
     }
 
+    static async getAllUserWorkoutsByType(type_id, user_id) {
+        const query = `
+            SELECT * 
+            FROM user_workouts 
+            WHERE user_id = '${user_id}'
+            AND type_id = '${type_id}';`;
+        try {
+            const response = await db.any(query);
+            return response;
+        } catch (err) {
+            return err.message;
+        }
+    }
+
     static async getAllWorkoutsByPart(part_id) {
         const query = `
             SELECT workouts.id, workouts.name, workouts.picture, workouts.link, workouts.type_id 
@@ -67,6 +81,17 @@ class Workout {
     static async getWorkoutById(workout_id) {
         const query = `SELECT * FROM workouts
             WHERE workouts.id = '${workout_id}';`;
+        try {
+            const response = await db.one(query);
+            return response;
+        } catch (err) {
+            return message.err;
+        }
+    }
+
+    static async getUserWorkoutById(workout_id) {
+        const query = `SELECT * FROM user_workouts
+            WHERE id = '${workout_id}';`;
         try {
             const response = await db.one(query);
             return response;
@@ -122,7 +147,25 @@ class Workout {
         }
     }
 
+    static async logUserWorkout(user_workout_id, weight, duration_min, duration_sec, reps, user_id) {
+        const query = `INSERT INTO logged_workouts (user_workout_id, weight, duration_min, duration_sec, reps, user_id) VALUES (${user_workout_id}, ${weight}, ${duration_min}, ${duration_sec}, ${reps}, ${user_id});`;
+        try {
+            const response = await db.result(query);
+            return response;
+        } catch (err) {
+            return err.message;
+        }
+    }
 
+    static async addUserWorkout (user_id, name, type_id) {
+        const query = `INSERT INTO user_workouts (user_id, type_id, name) VALUES (${user_id}, ${type_id}, '${name}');`;
+        try {
+            const response = await db.result(query);
+            return response;
+        } catch (err) {
+            return err.message;
+        }
+    }
 }
 
 module.exports = Workout;

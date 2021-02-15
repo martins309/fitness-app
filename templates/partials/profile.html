@@ -26,7 +26,8 @@
     <div class="card text-white b-gray mb-3 center" style="max-width: 540px;">
         <div class="row g-0">
             <div class="card-body">
-                <h3 class="card-title f-light-orange">${workout.name}</h3>
+              ${!!workout.name ? `<h3 class="card-title f-light-orange">${workout.name}</h3>` : `<h3 class="card-title f-light-orange">${workout.workout_name}</h3>`}
+                
                   <h6 class="f-small">${workout.date}</h6>
                   ${!!workout.weight ? 
                     `<h6 class="f-small">Weight: ${workout.weight}lbs</h6>`
