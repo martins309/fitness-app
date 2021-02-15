@@ -11,6 +11,7 @@ router.get('/', async (req, res, next) => {
     const user_id = req.session.user_id;
     const userInfo = await UserModel.getUserInfo(user_id);
     const loggedWorkouts = await UserModel.getLoggedWorkouts(user_id);
+    console.log("THIS IS THE LOGGED WORKOUTS", loggedWorkouts);
     var d = new Date();
     let sums = [];
     let date_labels = []
