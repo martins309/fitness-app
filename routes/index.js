@@ -41,7 +41,6 @@ router.post('/login', async (req, res) => {
     const { username, password  } = req.body;
     const user = new UserModel(null, username, password, null, null, null, null, null, null, null, null);
     const response = await user.login();
-
     if(!!response.isValid) {
         //do stuff if a user is loggen in
         req.session.is_logged_in = response.isValid;

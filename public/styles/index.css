@@ -182,6 +182,9 @@ a.active, a:hover{
        cursor: pointer;
 
      } 
+     /* .fxl{
+       margin-right: 10px;
+     } */
 }
 
 .nav-active{
