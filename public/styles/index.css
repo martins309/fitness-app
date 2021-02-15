@@ -192,4 +192,22 @@ a:hover {
   .show_nav {
     display: flex;
   }
+
+  .stack {
+    position: unset;
+    top: unset;
+  }
+
+  .stack-item {
+    background-color: var(--light-orange);
+    border: 1px solid var(--dark-gray);
+    border-radius: 5%;
+    position: unset;
+    top: unset;
+  }
+
+  .logout {
+    color: var(--dark-gray);
+    font-size: 0.8rem;
+  }
 }
