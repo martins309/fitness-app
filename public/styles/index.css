@@ -14,8 +14,7 @@ html {
   max-width: 100%;
 }
 
-.modal-title {
-}
+
 
 *,
 *::before,
@@ -129,8 +128,73 @@ hr {
 
 .profile-img {
   background-color: var(--orange);
+  border-radius: 20%;
 }
 
-.p-20 {
-  padding: 20px;
+
+a.active, a:hover{
+  transition: .5s;
 }
+
+.burger{
+  display: none;
+
+}
+
+.nav{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  /* width: 100%; */
+  min-height: 8vh;
+  margin: auto;
+  align-items: center;
+  min-height: 8vh;
+  padding: 15px 55px;
+  }
+
+
+  
+.burger div{
+
+    width: 35px;
+    height: 3px;
+    background-color:rgb(248, 135, 21);
+    margin: 5px 5px;  
+    
+}
+
+
+@media screen and (max-width:812px) {
+  .nav-item{
+    width: 45%;
+    }
+  
+}
+
+@media screen and (max-width:400px) {
+      
+    .nav-item{
+      width: 50%;
+      opacity: 0%; 
+      transform: translate(100%);   
+
+      }
+      
+     .burger{
+       display: block;
+       margin-bottom: 140px;
+       margin-left: 20px;
+       cursor: pointer;
+
+     } 
+     /* .fxl{
+       margin-right: 10px;
+     } */
+}
+
+
+.nav-active{
+  transform: translate(0%);
+}
+
