@@ -3,13 +3,12 @@
 </div>
 
 <div class="row align-items-end justify-content-start b-light-gray profile-banner">
-  <div class="col">
-    <h3 class="f-light-orange">${userInfo.username}</h3>
-  </div>
-  <div class="col">
+  <div class="f-light-orange">
     <h3 class="">${userInfo.first_name} ${userInfo.last_name}</h3>
   </div>
 </div>
+<br>
+<br>
 <div class="">
     <h5 class="">Weight: ${userInfo.weight}lbs</h5>
     <h5 class="">Height: ${userInfo.height_ft}ft ${userInfo.height_in}in</h5>
@@ -49,7 +48,7 @@
     </div>
     </a>
     `
-  ).slice(0, 3).join('')}
+  ).slice(0, 5).join('')}
   <a class="nav-link" href="/profile/loggedworkouts">
     <div class="card text-white b-gray mb-3 center col align-self-center " style="max-width: 540px;">
       <div class="row g-0">
