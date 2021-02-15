@@ -1,23 +1,11 @@
 <br>
 <h1 class="f-orange f-xl">${workoutDetails.name}</h1>
-<div class="container workout-container">
+<div class="container">
     <div class="card mb-3 b-gray">
-        <img class="card-img-top" src="${workoutDetails.picture}" alt="Image of ${workoutDetails.name} in action">
         <div class="card-body">
-            <a href="${workoutDetails.link}" target="_blank" class="card-title nav-link f-orange">Watch a demo!</a>
             <hr>
-            <div class="spaced">
-                <div class="card-header">
-                    Body Parts this exercise works:
-                </div>
-                <ul class="list-group list-group-flush w-50 center">
-                    ${partsList.map(part => 
-                        `<a class="nav-link" href="/workouts/parts/${part.id}"><li class="list-group-item f-dark-gray rounded  b-light-orange">${part.name}</li></a>`
-                        ).join('')}
-                </ul>
-            </div>
             <hr>
-            <form class="spaced" action="add_workout" method="POST">
+            <form class="spaced" action="log_user_workout" method="POST">
                 <input type="hidden" name="type_id" value="${workoutDetails.type_id}">
                 <input type="hidden" name="id" value="${workoutDetails.id}">
                 <input type="hidden" name="user_weight" value="${userInfo.weight}">
@@ -61,7 +49,6 @@
                             <input class="form-control" type="text" name="reps" id="reps" placeholder="3" required>
                         </label>`
                     : `<span></span>`}
-                
                 
                 <br>
                 <!-- Button trigger modal -->

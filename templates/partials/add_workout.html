@@ -1,0 +1,30 @@
+<h1>Add a workout!</h1>
+<h5>Fill in the form below to add your workout.</h5>
+<form class="spaced" action="add_user_workout" method="POST">
+    <label class="form-label" for="name">
+        Name your Workout:
+    </label>
+    <input type="text" name="name" placeholder="Pick a Name...">
+    <h4>
+        Type of Workout:
+    </h4>
+    <div class="input-group mb-3 w-25 center">
+        <input class="" type="radio" name="type_id" id="type1" value="1">
+        <label for="type1">  Weightlifting</label>
+    </div>
+    <div class="input-group mb-3 w-25 center">
+        <input  type="radio" name="type_id" id="type2" value="2">
+        <label for="type1">  Cardio</label>
+    </div>
+    <div class="input-group mb-3 w-25 center">
+        <input  type="radio" name="type_id" id="type3" value="3">
+        <label for="type3">  Yoga</label>
+    </div>
+    <div class="input-group mb-3 w-25 center">
+        <input  type="radio" name="type_id" id="type4" value="4">
+        <label for="type4">  Calisthenics</label>
+    </div>
+    <br>
+    <button type="submit" class="spaced btn f-light-orange btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Add
+    </button>

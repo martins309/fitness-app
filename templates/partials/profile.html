@@ -1,92 +1,150 @@
+<div class="profile-pic-cropper">
+  <img src="${userInfo.picture}" class="profile-pic" alt="user Profile Picture">
+</div>
 
-
-
-<div class="card f-dark-gray center" style="width: 18rem;">
-  <h1>${userInfo.first_name}'s Profile</h1>
- 
-  <img src="${userInfo.picture}" class="card-img-top" alt="user Profile Picture">
-  <div class="input-group mb-3">
-  <!-- ADD FUnctionality to uploading an image-->
-  <form action="/profile/add_photo" method="POST">
-    <input type="file" class="form-control" id="inputGroupFile02">
-    <label class="input-group-text f-dark-orange  b-light-gray" for="inputGroupFile02">Upload</label>
-  </form>
+<div class="row align-items-end justify-content-start b-light-gray profile-banner">
+  <div class="left f-light-orange">
+    <h3 class="">${userInfo.first_name} ${userInfo.last_name}</h3>
   </div>
-  <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-    <button type="button" class="btn btn-danger">profile</button>
-    <button type="button" class="btn btn-warning">profile summary</button>
-    <button type="button" class="btn btn-success">edit profile</button>
-  </div>
-
-  <ul class="list-group list-group-flush f-dark-orange  b-light-gray">
-    <li class="list-group-item">Username: ${userInfo.username}</li>
-    <li class="list-group-item">First Name: ${userInfo.first_name}</li>
-    <li class="list-group-item">Last Name: ${userInfo.last_name}</li>
-    <li class="list-group-item">Weight: ${userInfo.weight}lbs</li>
-    <li class="list-group-item">Height: ${userInfo.height_ft}ft ${userInfo.height_in}in</li>
-    <li class="list-group-item">Age: ${userInfo.age}</li>
-    <li class="list-group-item">Phone Number: ${userInfo.phone_num}</li>
-  </ul>
+</div>
+<br>
+<br>
+<div class="">
+    <h5 class="">Weight: ${userInfo.weight}lbs</h5>
+    <h5 class="">Height: ${userInfo.height_ft}ft ${userInfo.height_in}in</h5>
+    <h5 class="">Age: ${userInfo.age}</h5>
+    <h5 class="">Phone Number: ${userInfo.phone_num}</h5>
 </div>
 
 <a href="/profile/profile_edit" ><button type="button" class="btn btn-secondary">Edit Profile</button></a>
-
-
-
-
-
-<div class="card text-center">
-  <div class="card-header">
-    <ul class="nav nav-pills card-header-pills">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Active</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-    </ul>
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Workout Summary</h5>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-
-    ${loggedWorkouts.map(workout => 
-      `
-      <a class="nav-link" href="/workouts/workout/${workout.id}">
-      <div class="card text-white bg-dark mb-3 center" style="max-width: 540px;">
-          <div class="row g-0">
-              <div class="card-body">
-                  <h3 class="card-title">${workout.name}</h3>
-                  <ul>
-                    <li>${workout.date}</li>
-                    ${!!workout.weight ? 
-                      `<li>Weight: ${workout.weight}lbs</li>`
+<hr class="spaced">
+<h2 class="f-light-orange spaced">Logged Workouts</h2>
+<div class="card-group justify-content-center">
+  ${loggedWorkouts.map(workout => 
+    `
+    <a class="nav-link" href="/workouts/workout/${workout.id}">
+    <div class="card text-white b-gray mb-3 center" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="card-body">
+              <h3 class="card-title f-light-orange">${workout.name || workout.workout_name}</h3>
+                
+                  <h6 class="f-small">${workout.date}</h6>
+                  ${!!workout.weight ? 
+                    `<h6 class="f-small">Weight: ${workout.weight}lbs</h6>`
+                  : `<span></span>`}
+                  ${!!workout.reps ? 
+                    `<h6 class="f-small">Reps: ${workout.reps}</h6>`
                     : `<span></span>`}
-                    ${!!workout.reps ? 
-                      `<li>Reps: ${workout.reps}</li>`
-                      : `<span></span>`}
-                    ${!!workout.duration_min ?
-                      `<li>Duration: ${workout.duration_min}min ${workout.duration_sec}sec</li>`
-                      : `<span></span>`}
-                    ${!!workout.distance ? 
-                      `<li>Distance: ${workout.distance}</li>`
-                      : `<span></span>`}
-                    ${!!workout.calories_burned ? 
-                      `<li>Calories Burned: ${workout.calories_burned}</li>`
-                      : `<span></span>`}
-                    
-                  </ul>
-              </div>
-          </div>
-      </div>
-      </a>
-      `
-  ).join('')}
+                  ${!!workout.duration_min ?
+                    `<h6 class="f-small">Duration: ${workout.duration_min}min</h6>`
+                    : `<span></span>`}
+                  ${!!workout.distance ? 
+                    `<h6 class="f-small">Distance: ${workout.distance}</h6>`
+                    : `<span></span>`}
+                  ${!!workout.calories_burned ? 
+                    `<h6 class="f-small">Calories Burned: ${workout.calories_burned}</h6>`
+                    : `<span></span>`}
+            </div>
+        </div>
+    </div>
+    </a>
+    `
+  ).slice(0, 5).join('')}
+  <a class="nav-link" href="/profile/loggedworkouts">
+    <div class="card text-white b-gray mb-3 center col align-self-center " style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="card-body f-light-orange">
+          Show More >
+        </div>
+     </div>
+    </div>
+  </a>
+</div>
+<hr>
+<div>
+  <h1 class="f-light-orange">Progress Chart: Weightlifting</h1>
 
-  </div>
+<div class="container">
+    <canvas id="myChart"></canvas>
 </div>
 
+<script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+    console.log("hello");
+    console.log(${date_labels});
+    Chart.defaults.global.defaultFontFamily = 'sans-serif';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let massPopChart = new Chart(myChart, {
+        type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+        data:{
+        labels:${date_labels},
+        datasets:[{
+            label:${label},
+            data:[${sums}],
+            //backgroundColor:'green',
+            backgroundColor:[
+            'rgba(248, 135, 21, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)',
+            'rgba(255, 99, 132, 0.6)'
+            ],
+            borderWidth:1,
+            borderColor:'#777',
+            hoverBorderWidth:3,
+            hoverBorderColor:'#000'
+        }]
+        },
+        options:{
+        title:{
+            display:true,
+            text:'Total ${JSON.parse(label)} by day',
+            fontSize:20
+        },
+        legend:{
+            display:true,
+            position:'right',
+            labels:{
+            fontColor:'rgba(250, 193, 135)'
+            }
+        },
+        layout:{
+            padding:{
+            left:50,
+            right:0,
+            bottom:0,
+            top:0
+            }
+        },
+        tooltips:{
+            enabled:true
+        }
+        }
+    });
+</script>
+</div>
+<br>
+<hr>
+<br>
+<div>
+  <h2 class="f-orange">Want to view other charts?</h2>
+  <h5 class="f-light-orange">Choose your progress chart below...</h5>
+  <hr>
+  <a class="nav-link f-light-orange" href="/charts/1"><h5>Weightlifting</h5></a>
+  <br>
+  <a class="nav-link f-light-orange" href="/charts/2"><h5>Cardio</h5></a>
+  <br>
+  <a class="nav-link f-light-orange" href="/charts/4"><h5>Calisthenics</h5></a>
+  <br>
+  <hr>
+  <br>
+  <h6 class="f-light-gray">Looking for yoga? DON'T! Yoga is a practice about being in the present. Do not compare your self to your past self. Be happy with your present and exist in today.</h6>
+  <br>
+</div>
+<hr>
+<br><br>
 

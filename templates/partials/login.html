@@ -1,18 +1,23 @@
-<form action="/login" method="POST" class="">
-    <div class="">
-        <div class="">
-            <label class="">Username
+<div class="top_margin">
+    <h3 class="f-light-orange">Please log in:</h3>
+    <form action="/login" method="POST" class="">
+        <div class="spaced">
+            <div class="">
+                <label class="">Username
+                </label>
+                <br>
                 <input class="" name="username" placeholder="Username"/>
-            </label>
+            </div>
         </div>
-    </div>
-    <div class="">
-        <div class="">
-            <label class=""> Password
+        <div class="spaced">
+            <div class="">
+                <label class=""> Password
+                </label>
+                <br>
                 <input clas="" name="password" type="password" placeholder="Enter Password"/>
-            </label>
+            </div>
         </div>
-    </div>
-    <button class="" type="submit">LOGIN</button>
-</form>
-<a href="/signup">Create an account</a>
+        <button class="b-orange f-dark-gray btn-secondary btn spaced" type="submit">LOGIN</button>
+    </form>
+    <a class="nav-link f-light-orange " href="/signup">Don't have a login? Create an account!</a>
+</div>

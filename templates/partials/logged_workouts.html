@@ -1,0 +1,33 @@
+<h5 class="">Logged Workouts</h5>
+<h4>for ${userInfo.first_name}</h4>
+<div class="card-group">
+  ${loggedWorkouts.map(workout => 
+    `
+    <a class="nav-link" href="/workouts/workout/${workout.id}">
+    <div class="card text-white bg-dark mb-3 center" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="card-body">
+                <h3 class="card-title f-light-orange">${workout.name || workout.workout_name}</h3>
+                  <h6 class="f-small">${workout.date}</h6>
+                  ${!!workout.weight ? 
+                    `<h6 class="f-small">Weight: ${workout.weight}lbs</h6>`
+                  : `<span></span>`}
+                  ${!!workout.reps ? 
+                    `<h6 class="f-small">Reps: ${workout.reps}</h6>`
+                    : `<span></span>`}
+                  ${!!workout.duration_min ?
+                    `<h6 class="f-small">Duration: ${workout.duration_min}min</h6>`
+                    : `<span></span>`}
+                  ${!!workout.distance ? 
+                    `<h6 class="f-small">Distance: ${workout.distance}</h6>`
+                    : `<span></span>`}
+                  ${!!workout.calories_burned ? 
+                    `<h6 class="f-small">Calories Burned: ${workout.calories_burned}</h6>`
+                    : `<span></span>`}
+            </div>
+        </div>
+    </div>
+    </a>
+    `
+  ).join('')}
+</div>
