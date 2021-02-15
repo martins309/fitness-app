@@ -1,20 +1,21 @@
 <h1>Workouts for your ${partInfo.name}</h1>
 
-${workoutList.map(workout => 
-    `
-    <a class="nav-link" href="/workouts/workout/${workout.id}">
+${workoutList.map(workout =>
+`
+<a class="nav-link" href="/workouts/workout/${workout.id}">
     <div class="card text-white bg-dark mb-3 center" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-4">
-            <img class="img-fluid rounded float-start" src="${workout.picture}" alt="Image showing ${workout.name}" width="100px">
+                <img class="img-fluid rounded float-start" src="${workout.picture}" alt="Image showing ${workout.name}"
+                    width="100px">
             </div>
             <div class="col-8">
-            <div class="card-body">
-                <h5 class="card-title">${workout.name}</h5>
-            </div>
+                <div class="card-body">
+                    <h5 class="card-title">${workout.name}</h5>
+                </div>
             </div>
         </div>
     </div>
-    </a>
-    `
-    ).join('')}
+</a>
+`
+).join('')}

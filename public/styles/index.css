@@ -140,10 +140,11 @@ a:hover {
 
 .burger {
   display: none;
+  margin-right: 15px;
 }
 
-.nav {
-  display: flex;
+.menu-long {
+  display: none;
   justify-content: space-evenly;
   flex-wrap: wrap;
   min-height: 8vh;
@@ -165,46 +166,40 @@ a:hover {
 }
 
 @media screen and (max-width: 812px) {
-  .nav-item {
+  .item-nav {
     width: 45%;
   }
 }
 
-@media screen and (max-width: 400px) {
-  .nav-item {
+/* @media screen and (max-width: 400px) {
+  .item-nav {
     width: 50%;
     opacity: 0%;
     transform: translate(100%);
-  }
+  } */
 
-@media screen and (max-width:812px) {
-  .nav-item{
-    width: 45%;
-    }
-  
-}
 
 @media screen and (max-width:400px) {
       
-    ul{
-      width: 100%;
-      height: 50vh;
-      background-color: #3a3836;
-      transition: all .5s;
+  ul{
+    width: 100%;
+    height: 50vh;
+    background-color: #3a3836;
+    transition: all .5s;
+  }
+
+  .burger{
+    display: block;
+    margin-left: 20px;
+    cursor: pointer;
+  }
 
 
-    }
-    
-   
+  .show-nav.menu-long {
+    display: flex;
+  }
+  
 
-     .burger{
-       display: block;
-       margin-left: 20px;
-       cursor: pointer;
-
-     }
-
-     
 }
 
  

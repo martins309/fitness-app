@@ -3,31 +3,33 @@
 <hr>
 <br>
 <h2>Pre-Made Workouts</h2>
-${workoutList.map(workout => 
-    `
-    <a class="nav-link" href="/workouts/workout/${workout.id}">
+${workoutList.map(workout =>
+`
+<a class="nav-link" href="/workouts/workout/${workout.id}">
     <div class="card text-white bg-dark mb-3 center" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-4">
-            <img class="img-fluid rounded float-start" src="${workout.picture}" alt="Image showing ${workout.name}" width="100px">
+                <img class="img-fluid rounded float-start" src="${workout.picture}" alt="Image showing ${workout.name}"
+                    width="100px">
             </div>
             <div class="col-8">
-            <div class="card-body">
-                <h5 class="card-title">${workout.name}</h5>
-            </div>
+                <div class="card-body">
+                    <h5 class="card-title">${workout.name}</h5>
+                </div>
             </div>
         </div>
     </div>
-    </a>
-    `
+</a>
+`
 ).join('')}
 <br>
 <hr>
 <br>
-<h2>My Workouts <a href="/workouts/addWorkout"><img src="/images/icons/add-circle-fill.png" alt="" width="30px"></a></h2>
-${userWorkoutList.map(workout => 
-    `
-    <a class="nav-link" href="/workouts/userworkout/${workout.id}">
+<h2>My Workouts <a href="/workouts/addWorkout"><img src="/images/icons/add-circle-fill.png" alt="" width="30px"></a>
+</h2>
+${userWorkoutList.map(workout =>
+`
+<a class="nav-link" href="/workouts/userworkout/${workout.id}">
     <div class="card text-white bg-dark mb-3 center" style="max-width: 540px;">
         <div class="row g-0">
             <div class="card-body">
@@ -35,6 +37,6 @@ ${userWorkoutList.map(workout =>
             </div>
         </div>
     </div>
-    </a>
-    `
+</a>
+`
 ).join('')}
