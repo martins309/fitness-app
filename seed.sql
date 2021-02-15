@@ -128,23 +128,6 @@ VALUES
 (5, 33)
 
 
-
-
-
-
-
-
-
-INSERT INTO parts_of_body (name)
-VALUES
-1 ('shoulders'),
-2('arms'),
-3('back'),
-4('chest'),
-5('abs'),
-6('legs');
-
-
 UPDATE workouts SET link = 'https://www.youtube.com/watch?v=aZOZ3QNPZUs' WHERE name = 'Running';
 UPDATE workouts SET link = 'https://www.youtube.com/watch?v=uiI6Z_0Q2Io'  WHERE name = 'Swimming';
 UPDATE workouts SET link = 'https://www.youtube.com/watch?v=hPcR6MQ5dJo'  WHERE name = 'Cycling';
