@@ -40,15 +40,15 @@ VALUES ('Dumbbell Row', '/images/dumbbell_rows.jpg', 'https://www.youtube.com/wa
 ('Happy Baby Pose', '/images/happybaby.jpg', 'https://www.youtube.com/watch?v=ScnGkvMW_us', 3), 
 ('Mountain Pose', '/images/mountain.jpg', 'https://www.youtube.com/watch?v=E-iyEfoDqiY', 3), 
 ('Monkey Pose', '/images/monkey.webp', 'https://www.youtube.com/watch?v=bK_ZhVfq_ck', 3), 
-('Running', '/images/run.gif', 'null', 2), 
-('Swimming', '/images/swim.jpg', 'null', 2), 
-('Cycling', '/images/cycle.jpg', 'null', 2), 
-('Walking', '/images/walk.jpg', 'null', 2), 
-('Jump Rope', '/images/jump.jpg', 'null', 4), 
-('Jumping Jacks', '/images/jacks.jpg', 'null', 4), 
-('Pull-ups', '/images/pull.jpg', 'null', 4), 
-('Push-ups', '/images/push.png', 'null', 4), 
-('Reverse Plank', '/images/rplank.jpg', 'null', 4);
+('Running', '/images/run.gif', 'https://www.youtube.com/watch?v=aZOZ3QNPZUs', 2), 
+('Swimming', '/images/swim.jpg', 'https://www.youtube.com/watch?v=uiI6Z_0Q2Io', 2), 
+('Cycling', '/images/cycle.jpg', 'https://www.youtube.com/watch?v=hPcR6MQ5dJo', 2), 
+('Walking', '/images/walk.jpg', 'https://www.youtube.com/watch?v=-fD2TSL2s7I', 2), 
+('Jump Rope', '/images/jump.jpg', 'https://www.youtube.com/watch?v=aFoektJK9dU', 4), 
+('Jumping Jacks', '/images/jacks.jpg', 'https://www.youtube.com/watch?v=9gDfNpzytLo', 4), 
+('Pull-ups', '/images/pull.jpg', 'https://www.youtube.com/watch?v=eGo4IYlbE5g', 4), 
+('Push-ups', '/images/push.png', 'https://www.youtube.com/watch?v=IODxDxX7oi4', 4), 
+('Reverse Plank', '/images/rplank.jpg', 'https://www.youtube.com/watch?v=1s1bPYBPERU', 4);
 
 
 INSERT INTO parts_workouts (part_id, workout_id)
@@ -97,4 +97,64 @@ VALUES (3, 1),
 (6, 23),
 (3, 24),
 (6, 24),
+
+INSERT INTO parts_workouts (part_id, workout_id)
+VALUES
+(6,25),
+(5, 25),
+(2, 25),
+(1, 26),
+(2, 26),
+(3, 26),
+(4, 26),
+(5, 26),
+(6, 26),
+(6, 27),
+(5, 27),
+(2, 27),
+(2, 28),
+(6, 28),
+(6, 29),
+(2, 29),
+(6, 30),
+(2, 30),
+(1, 31),
+(2, 31),
+(4, 31),
+(1, 32),
+(2, 32),
+(4, 32),
+(2, 33),
+(5, 33)
+
+
+
+
+
+
+
+
+
+INSERT INTO parts_of_body (name)
+VALUES
+1 ('shoulders'),
+2('arms'),
+3('back'),
+4('chest'),
+5('abs'),
+6('legs');
+
+
+UPDATE workouts SET link = 'https://www.youtube.com/watch?v=aZOZ3QNPZUs' WHERE name = 'Running';
+UPDATE workouts SET link = 'https://www.youtube.com/watch?v=uiI6Z_0Q2Io'  WHERE name = 'Swimming';
+UPDATE workouts SET link = 'https://www.youtube.com/watch?v=hPcR6MQ5dJo'  WHERE name = 'Cycling';
+UPDATE workouts SET link = 'https://www.youtube.com/watch?v=-fD2TSL2s7I'  WHERE name = 'Walking';
+UPDATE workouts SET link = 'https://www.youtube.com/watch?v=aFoektJK9dU'  WHERE name = 'Jump Rope';
+UPDATE workouts SET link = 'https://www.youtube.com/watch?v=9gDfNpzytLo'  WHERE name = 'Jumping Jacks';
+UPDATE workouts SET link = 'https://www.youtube.com/watch?v=eGo4IYlbE5g'  WHERE name = 'Pull-ups';
+UPDATE workouts SET link = 'https://www.youtube.com/watch?v=IODxDxX7oi4'  WHERE name = 'Push-ups';
+UPDATE workouts SET link = 'https://www.youtube.com/watch?v=1s1bPYBPERU'  WHERE name = 'Reverse Plank';
+
+
+
 
