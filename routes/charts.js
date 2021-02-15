@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
         },
         partials: {
             body: "partials/progress_charts",
-            header: ""
+            header: "partials/header"
         }
     });
 });
@@ -64,7 +64,7 @@ router.get('/:type_id', async (req, res, next) => {
         }, 
         partials: {
             body:"partials/weightlifting_chart",
-            header: ""
+            header: "partials/header"
         }
     })
 })

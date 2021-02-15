@@ -1,42 +1,44 @@
 <form action="edit_profile" method="POST">
-    <div class="card center" style="width: 18rem;">
-        <h1 class="f-dark-gray">Edit Profile</h1>
-        <div class="input-group input-group-sm mb-3">
+    <div class="center">
+        <h1 class="f-light-orange">Edit Profile</h1>
+        <div class="">
             <div>
-                <span class="input-group-text" id="inputGroup-sizing-sm">Username</span>
-                <input type="text" name="username" class="form-control" value="${userInfo.username}" placeholder="${userInfo.username}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                <label class="" for="username">Username</label>
+                <input type="text" id="username" name="username" class="" value="${userInfo.username}" placeholder="${userInfo.username}">
             </div>
                 <br>
             <div>
-                <span class="input-group-text" id="inputGroup-sizing-sm">First Name</span>
-                <input type="text" name="first_name" class="form-control" placeholder="${userInfo.first_name}" value="${userInfo.first_name}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                <label class="" id="inputGroup-sizing-sm">First Name</label>
+                <input type="text" name="first_name" class="" placeholder="${userInfo.first_name}" value="${userInfo.first_name}">
             </div>
                 <br>
             <div>
-                <span class="input-group-text" id="inputGroup-sizing-sm">Last Name</span>
-                <input type="text" name="last_name" class="form-control" value="${userInfo.last_name}" placeholder="${userInfo.last_name}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                <label class="" id="inputGroup-sizing-sm">Last Name</label>
+                <input type="text" name="last_name" class="" value="${userInfo.last_name}" placeholder="${userInfo.last_name}">
             </div>
                 <br>
             <div>
-                <span class="input-group-text" id="inputGroup-sizing-sm">Weight</span>
-                <input type="number" name="weight" class="form-control" value="${userInfo.weight}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                <label class="" id="inputGroup-sizing-sm">Weight</label>
+                <input type="number" name="weight" class="" value="${userInfo.weight}">
             </div>
                 <br>
                 <div>
-                <span class="input-group-text" id="inputGroup-sizing-sm">Height</span>
-                <input type="number" name="height_ft" class="form-control" value="${userInfo.height_ft}"  placeholder="${userInfo.height_ft}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"><span>ft</span>
-                <input type="number" name="height_in" class="form-control" value="${userInfo.height_in}" placeholder="${userInfo.height_in}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"><span>in</span>
+                <label class="" id="inputGroup-sizing-sm">Height</label>
+                <input type="number" name="height_ft" class="" value="${userInfo.height_ft}"  placeholder="${userInfo.height_ft}"><label>ft</label>
+                <input type="number" name="height_in" class="" value="${userInfo.height_in}" placeholder="${userInfo.height_in}"><label>in</label>
             </div>
                 <br>
             <div>
-                <span class="input-group-text" id="inputGroup-sizing-sm">Age</span>
-                <input type="number" name="age"class="form-control" value="${userInfo.age}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                <label class="" id="inputGroup-sizing-sm">Age</label>
+                <input type="number" name="age"class="" value="${userInfo.age}">
             </div>
+            <br>
             <div>
-                <span class="input-group-text" id="inputGroup-sizing-sm">Phone Number</span>
-                <input type="number" name="phone_num"class="form-control" value="${userInfo.phone_num}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-            </div>            
-        <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                <label class="" id="inputGroup-sizing-sm">Phone Number</label>
+                <input type="text" name="phone_num"class="" value="${userInfo.phone_num}">
+            </div> 
+            <br>           
+        <button type="submit" class="btn b-light-orange f-dark-gray btn-sm">Update</button>
         </div>
     </div>
 </form>

@@ -45,6 +45,7 @@ router.get('/', async (req, res, next) => {
 router.get('/profile_edit', async (req, res, next) => {
     const user_id = req.session.user_id;
     const userInfo = await UserModel.getUserInfo(user_id);
+    console.log("USER INFO:", userInfo);
     res.render('template', {
         locals: {
             title: "EditProfile Page",
