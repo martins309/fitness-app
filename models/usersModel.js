@@ -76,7 +76,22 @@ class User {
             ON l.workout_id = w.id
             LEFT JOIN user_workouts uw
             ON uw.id = l.user_workout_id 
-            WHERE l.user_id = '${user_id}' ORDER BY date DESC;`;
+            WHERE l.user_id = '${user_id}' ORDER BY l.date DESC;`;
+            const response = await db.any(query);
+            return response;
+        } catch (err) {
+        return err.message;
+        }
+    } 
+
+    static async getLoggedWorkoutsByType(user_id, type_id) {
+        try {
+            const query = `SELECT to_char(l.date, 'Mon DD, YYYY') as date, l.id, l.user_id, l.workout_id, l.weight, l.reps, l.duration_min, l.duration_sec, l.distance, l.calories_burned, l.user_workout_id, w.name as name, uw.name as workout_name FROM logged_workouts l
+            LEFT JOIN workouts w 
+            ON l.workout_id = w.id
+            LEFT JOIN user_workouts uw
+            ON uw.id = l.user_workout_id 
+            WHERE l.user_id = '${user_id}' AND w.type_id = '${type_id}' OR uw.type_id = '${type_id}' ORDER BY l.date DESC;`;
             const response = await db.any(query);
             return response;
         } catch (err) {
