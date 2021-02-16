@@ -11,6 +11,7 @@ router.get('/', async (req, res, next) => {
     const user_id = req.session.user_id;
     const userInfo = await UserModel.getUserInfo(user_id);
     const loggedWorkouts = await UserModel.getLoggedWorkouts(user_id);
+    console.log("THIS IS THE LOGGED WORKOUTS", loggedWorkouts);
     var d = new Date();
     let sums = [];
     let date_labels = []
@@ -33,25 +34,18 @@ router.get('/', async (req, res, next) => {
             date_labels: JSON.stringify(date_labels),
         },
         partials: {
-            body: "partials/profile"
+            body: "partials/profile",
+            header: "partials/header"
         }
     });
 });
-
-
-
-router.get('/logout', (req, res, next) => {
-    req.sessions.destroy();
-    res.redirect('/');
-})
-
-
 
 
 //edit information on profile 
 router.get('/profile_edit', async (req, res, next) => {
     const user_id = req.session.user_id;
     const userInfo = await UserModel.getUserInfo(user_id);
+    console.log("USER INFO:", userInfo);
     res.render('template', {
         locals: {
             title: "EditProfile Page",
@@ -59,7 +53,8 @@ router.get('/profile_edit', async (req, res, next) => {
             userInfo
         },
         partials: {
-            body: "partials/profile_edit"
+            body: "partials/profile_edit",
+            header: "partials/header"
         }
     });
 });
@@ -77,7 +72,8 @@ router.get('/loggedworkouts', async (req, res, next) => {
             loggedWorkouts,
         },
         partials: {
-            body: "partials/logged_workouts"
+            body: "partials/logged_workouts",
+            header: "partials/header"
         }
     });
 })

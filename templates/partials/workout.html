@@ -1,6 +1,6 @@
 <br>
 <h1 class="f-orange f-xl">${workoutDetails.name}</h1>
-<div class="container">
+<div class="container workout-container">
     <div class="card mb-3 b-gray">
         <img class="card-img-top" src="${workoutDetails.picture}" alt="Image of ${workoutDetails.name} in action">
         <div class="card-body">
@@ -10,7 +10,7 @@
                 <div class="card-header">
                     Body Parts this exercise works:
                 </div>
-                <ul class="list-group list-group-flush w-25 center">
+                <ul class="list-group list-group-flush w-50 center">
                     ${partsList.map(part => 
                         `<a class="nav-link" href="/workouts/parts/${part.id}"><li class="list-group-item f-dark-gray rounded  b-light-orange">${part.name}</li></a>`
                         ).join('')}
@@ -20,17 +20,49 @@
             <form class="spaced" action="add_workout" method="POST">
                 <input type="hidden" name="type_id" value="${workoutDetails.type_id}">
                 <input type="hidden" name="id" value="${workoutDetails.id}">
-                <label class="form-label" for="weight">
-                    Weight:
-                </label>
-                <div class="input-group mb-3 w-25 center">
-                    <input input class="form-control" type="text" name="weight" id="weight" placeholder="10" required aria-describedby="basic-addon1">
-                    <span class="input-group-text" id="basic-addon1">lbs</span>
-                </div>
-                <label class="form-label" for="reps">
-                    Reps:
-                    <input class="form-control" type="text" name="reps" id="reps" placeholder="3" required>
-                </label>
+                <input type="hidden" name="user_weight" value="${userInfo.weight}">
+                ${workoutDetails.type_id === 1 ?
+                        `<label class="form-label" for="weight">
+                            Weight:
+                        </label>
+                        <div class="input-group mb-3 w-25 center">
+                            <input input class="form-control" type="text" name="weight" id="weight" placeholder="10" required aria-describedby="basic-addon1">
+                            <span class="input-group-text" id="basic-addon1">lbs</span>
+                        </div>
+                        <label class="form-label" for="reps">
+                            Reps:
+                            <input class="form-control" type="text" name="reps" id="reps" placeholder="3" required>
+                        </label>` 
+                    : workoutDetails.type_id === 2 ? 
+                        `<label class="form-label" for="distance">
+                            Distance:
+                        </label>
+                        <div class="input-group mb-3 w-25 center">
+                            <input input class="form-control" type="text" name="distance" id="distance" placeholder="10" required aria-describedby="basic-addon1">
+                            <span class="input-group-text" id="basic-addon1">mi</span>
+                        </div>
+                        <label class="form-label" for="duration">
+                            Duration:
+                            <input class="form-control" type="text" name="duration" id="duration" placeholder="3" required>
+                        </label>`
+                    : workoutDetails.type_id === 3 ?
+                        `<label class="form-label" for="reps">
+                            Reps:
+                            <input class="form-control" type="text" name="reps" id="reps" placeholder="3" required>
+                        </label>`
+                    : workoutDetails.type_id === 4 ?
+                        `<label class="form-label" for="duration">
+                            Duration:
+                            <input class="form-control" type="text" name="duration" id="duration" placeholder="3" required>
+                        </label>
+                        <br>
+                        <label class="form-label" for="reps">
+                            Reps:
+                            <input class="form-control" type="text" name="reps" id="reps" placeholder="3" required>
+                        </label>`
+                    : `<span></span>`}
+                
+                
                 <br>
                 <!-- Button trigger modal -->
                 <button type="button" class="spaced btn f-light-orange btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -46,7 +78,6 @@
                                 </div>
                                 <div class="modal-body">
                                     <h1 class="f-orange f-xl">${workoutDetails.name}</h1>
-                                    <p>Weight: Reps: </p>
                                 </div>
 
                                 <div class="modal-footer">

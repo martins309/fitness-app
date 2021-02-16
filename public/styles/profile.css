@@ -4,21 +4,16 @@
   position: relative;
   overflow: hidden;
   border-radius: 50%;
-  position: absolute;
   z-index: 10;
-  top: 100px;
-  left: 50px;
 }
 
 .profile-pic {
   display: inline;
   margin: 0 auto;
-  margin-left: -25%;
   height: 100%;
   width: auto;
 }
 
 .profile-banner {
-  margin-top: 320px;
   padding: 50px;
 }

@@ -14,9 +14,6 @@ html {
   max-width: 100%;
 }
 
-.modal-title {
-}
-
 *,
 *::before,
 *::after {
@@ -115,6 +112,14 @@ hr {
   margin: 10px;
 }
 
+.top-margin-50 {
+  margin-top: 50px;
+}
+
+.top_margin {
+  margin-top: 100px;
+}
+
 .f-xl {
   font-size: 1.8rem;
 }
@@ -129,8 +134,84 @@ hr {
 
 .profile-img {
   background-color: var(--orange);
+  border-radius: 20%;
 }
 
-.p-20 {
-  padding: 20px;
+a.active,
+a:hover {
+  transition: 0.5s;
+}
+
+.burger {
+  display: none;
+  margin-right: 15px;
+}
+
+.menu-long {
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: auto;
+  align-items: center;
+  padding: 15px 55px;
+}
+
+.workout-container {
+  max-width: 600px;
+}
+
+.burger div {
+  width: 35px;
+  height: 3px;
+  background-color: rgb(248, 135, 21);
+  margin: 5px 5px;
+}
+
+.stack {
+  position: absolute;
+  top: 10px;
+}
+
+.stack-item {
+  position: relative;
+  top: 40px;
+}
+
+@media screen and (max-width: 800px) {
+  ul {
+    width: 100%;
+    background-color: #3a3836;
+    transition: all 0.5s;
+  }
+
+  .burger {
+    display: block;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+
+  .menu-long {
+    display: none;
+  }
+
+  .show_nav {
+    display: flex;
+  }
+
+  .stack {
+    position: unset;
+    top: unset;
+  }
+
+  .stack-item {
+    background-color: var(--light-orange);
+    border: 1px solid var(--dark-gray);
+    border-radius: 5%;
+    position: unset;
+    top: unset;
+  }
+
+  .logout {
+    color: var(--dark-gray);
+    font-size: 0.8rem;
+  }
 }

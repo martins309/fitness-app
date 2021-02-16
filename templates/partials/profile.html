@@ -1,13 +1,13 @@
-<div class="profile-pic-cropper">
+<div class="profile-pic-cropper center">
   <img src="${userInfo.picture}" class="profile-pic" alt="user Profile Picture">
 </div>
 
-<div class="row align-items-end justify-content-start b-light-gray profile-banner">
-  <div class="left f-light-orange">
+<div class="row align-items-end justify-content-start profile-banner">
+  <div class="f-light-orange">
     <h3 class="">${userInfo.first_name} ${userInfo.last_name}</h3>
   </div>
 </div>
-<br>
+<hr>
 <br>
 <div class="">
     <h5 class="">Weight: ${userInfo.weight}lbs</h5>
@@ -36,7 +36,7 @@
                     `<h6 class="f-small">Reps: ${workout.reps}</h6>`
                     : `<span></span>`}
                   ${!!workout.duration_min ?
-                    `<h6 class="f-small">Duration: ${workout.duration_min}min ${workout.duration_sec}sec</h6>`
+                    `<h6 class="f-small">Duration: ${workout.duration_min}min</h6>`
                     : `<span></span>`}
                   ${!!workout.distance ? 
                     `<h6 class="f-small">Distance: ${workout.distance}</h6>`

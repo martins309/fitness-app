@@ -1,6 +1,13 @@
 'use strict';
 
-function getLoggedWorkout(type_id) {
-    const newLoggedWorkout = document.querySelector('#modal-body p')
-    newLoggedWorkout.appendChild(type_id);
+
+const navSlide = () => {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.menu-long');
+    console.log("BURGER:", burger);
+    burger.addEventListener('click', () => {
+        nav.classList.toggle('show_nav');
+    });
 }
+
+navSlide();

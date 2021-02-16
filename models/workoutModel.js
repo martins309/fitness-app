@@ -137,8 +137,8 @@ class Workout {
         }
     }
 
-    static async logWorkout(workout_id, weight, duration_min, duration_sec, reps, user_id) {
-        const query = `INSERT INTO logged_workouts (workout_id, weight, duration_min, duration_sec, reps, user_id) VALUES (${workout_id}, ${weight}, ${duration_min}, ${duration_sec}, ${reps}, ${user_id});`;
+    static async logWorkout(workout_id, weight, duration_min, distance, reps, user_id, calories_burned) {
+        const query = `INSERT INTO logged_workouts (workout_id, weight, duration_min, distance, reps, user_id, calories_burned) VALUES (${workout_id}, ${weight}, ${duration_min}, ${distance}, ${reps}, ${user_id}, ${calories_burned});`;
         try {
             const response = await db.result(query);
             return response;

@@ -29,6 +29,7 @@
     "express": "^4.17.1",
     "express-es6-template-engine": "^2.2.3",
     "express-session": "^1.17.1",
-    "pg-promise": "^10.9.2"
+    "pg-promise": "^10.9.2",
+    "remixicon": "^2.5.0"
   }
 }
