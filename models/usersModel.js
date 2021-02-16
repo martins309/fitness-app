@@ -91,7 +91,7 @@ class User {
             ON l.workout_id = w.id
             LEFT JOIN user_workouts uw
             ON uw.id = l.user_workout_id 
-            WHERE l.user_id = '${user_id}' AND w.type_id = '${type_id}' OR uw.type_id = '${type_id}' ORDER BY l.date DESC;`;
+            WHERE l.user_id = '${user_id}' AND w.type_id = '${type_id}' OR l.user_id = '${user_id}' AND uw.type_id = '${type_id}' ORDER BY l.date DESC;`;
             const response = await db.any(query);
             return response;
         } catch (err) {
