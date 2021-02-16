@@ -48,7 +48,7 @@ router.post('/login', async (req, res) => {
         req.session.is_logged_in = response.isValid;
         req.session.user_id = response.user_id;
         req.session.username = response.username;
-        res.redirect('/workouts');
+        res.redirect('/profile');
     }else {
         res.sendStatus(403);
     }
