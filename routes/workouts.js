@@ -132,6 +132,8 @@ router.get('/:type_id', async (req, res, next) => {
     const workoutList = await WorkoutModel.getAllWorkoutsByType(type_id);
     const userWorkoutList = await WorkoutModel.getAllUserWorkoutsByType(type_id, user_id);
     console.log("THIS IS THE USER WORKOUT LIST:", userWorkoutList);
+    const loggedWorkoutsByType = await UserModel.getLoggedWorkoutsByType(user_id, type_id);
+    console.log("THIS IS THE LOGGED WORKOUTS BY TYPE", loggedWorkoutsByType);
     res.render('template', {
         locals: {
             title: `Workouts for ${typeInfo.name}`,
@@ -139,6 +141,7 @@ router.get('/:type_id', async (req, res, next) => {
             workoutList,
             typeInfo,
             userWorkoutList,
+            loggedWorkoutsByType
         },
         partials: {
             body: "partials/workouts_by_type",

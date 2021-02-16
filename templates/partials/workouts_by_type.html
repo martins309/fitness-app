@@ -1,6 +1,49 @@
 <h1>Workouts for ${typeInfo.name}</h1>
 <br>
 <hr>
+<h2 class="f-light-orange spaced">Logged Workouts</h2>
+<div class="card-group justify-content-center">
+  ${loggedWorkoutsByType.map(workout => 
+    `
+    <a class="nav-link" href="/workouts/workout/${workout.id}">
+    <div class="card text-white b-gray mb-3 center" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="card-body">
+              <h3 class="card-title f-light-orange">${workout.name || workout.workout_name}</h3>
+                
+                  <h6 class="f-small">${workout.date}</h6>
+                  ${!!workout.weight ? 
+                    `<h6 class="f-small">Weight: ${workout.weight}lbs</h6>`
+                  : `<span></span>`}
+                  ${!!workout.reps ? 
+                    `<h6 class="f-small">Reps: ${workout.reps}</h6>`
+                    : `<span></span>`}
+                  ${!!workout.duration_min ?
+                    `<h6 class="f-small">Duration: ${workout.duration_min}min</h6>`
+                    : `<span></span>`}
+                  ${!!workout.distance ? 
+                    `<h6 class="f-small">Distance: ${workout.distance}</h6>`
+                    : `<span></span>`}
+                  ${!!workout.calories_burned ? 
+                    `<h6 class="f-small">Calories Burned: ${workout.calories_burned}</h6>`
+                    : `<span></span>`}
+            </div>
+        </div>
+    </div>
+    </a>
+    `
+  ).slice(0, 5).join('')}
+    <a class="nav-link" href="/profile/loggedworkouts">   
+        <div class="card text-white b-gray mb-3 center col align-self-center " style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="card-body f-light-orange">
+                    Show More >
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+<hr>
 <br>
 <h2>Pre-Made Workouts</h2>
 ${workoutList.map(workout =>
