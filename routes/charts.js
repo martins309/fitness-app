@@ -43,7 +43,7 @@ router.get('/:type_id', async (req, res, next) => {
                 label = "distance";
                 break;
             case '4' :
-                label = "duration";
+                label = "duration_min";
                 break;
             default :
             console.log("THIS IS THE CASE");
