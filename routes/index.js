@@ -38,6 +38,19 @@ router.get('/signup', async (req, res, next) => {
     })
 });
 
+router.get('/short_game', (req, res, next) => {
+    res.render('template', {
+        locals: {
+            title: "Short Game, Sean...",
+            is_logged_in: req.session.is_logged_in
+        }, 
+        partials: {
+            body: "partials/sean",
+            header: "partials/header"
+        }
+    })
+})
+
 // Posts
 router.post('/login', async (req, res) => {
     const { username, password  } = req.body;
